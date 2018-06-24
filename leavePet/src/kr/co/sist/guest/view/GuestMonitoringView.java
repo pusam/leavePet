@@ -5,8 +5,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
-import javafx.scene.control.ComboBox;
-
 public class GuestMonitoringView extends JFrame {
 
 	private JLabel lblTitle, lblSelectDate, lblBigPetView, lblSmallPetView1, lblSmallPetView2, lblSmallPetView3,
@@ -26,6 +24,7 @@ public class GuestMonitoringView extends JFrame {
 		cbSelectYear = new JComboBox<>();
 		cbSelectMonth = new JComboBox<>();
 		cbSelectDay = new JComboBox<>();
+		lblMonitorView = new JLabel();
 		
 		int x = 0;
 		int xGep = 20;
@@ -50,6 +49,8 @@ public class GuestMonitoringView extends JFrame {
 		lblSmallPetView3.setBounds(x+160, y+300, 80, 100);
 		lblSmallPetView4.setBounds(x+240, y+300, 80, 100);
 		lblSmallPetView5.setBounds(x+320, y+300, 80, 100);
+		y=y+height+yGep;
+		lblMonitorView.setBounds(x+410, 45, 290, 510);
 		
 		lblTitle.setBorder(new TitledBorder(""));
 		lblSelectDate.setBorder(new TitledBorder(""));
@@ -59,6 +60,7 @@ public class GuestMonitoringView extends JFrame {
 		lblSmallPetView3.setBorder(new TitledBorder(""));
 		lblSmallPetView4.setBorder(new TitledBorder(""));
 		lblSmallPetView5.setBorder(new TitledBorder(""));
+		lblMonitorView.setBorder(new TitledBorder(""));
 		
 		add(lblTitle);
 		add(lblSelectDate);
@@ -71,10 +73,11 @@ public class GuestMonitoringView extends JFrame {
 		add(lblSmallPetView3);
 		add(lblSmallPetView4);
 		add(lblSmallPetView5);
+		add(lblMonitorView);
 		
 		setResizable(false);
 		setLayout(null);
-		setBounds(600, 200, 800, 600);
+		setBounds(600, 200, 750, 600);
 		setVisible(true);
 
 
