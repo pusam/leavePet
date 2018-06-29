@@ -3,11 +3,13 @@ package kr.co.sist.guest.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 /**
  * 사용자 강아지 예약신청 화면
@@ -25,6 +27,8 @@ public class GuestReservationDogView extends JFrame {
 			tfPreliminaryPhone2, tfPreliminaryPhone3, tfDogName;
 	
 	private JTextArea taRequestedTerm;
+	
+	private JButton btnApply;
 
 	public GuestReservationDogView() {
 		int x = 0;
@@ -64,6 +68,7 @@ public class GuestReservationDogView extends JFrame {
 		taRequestedTerm = new JTextArea();
 		lblDogName = new JLabel("강아지 이름");
 		tfDogName = new JTextField();
+		btnApply = new JButton("신청");
 		
 		lblTitle.setFont(new Font("Serif", Font.BOLD, 30));
 		cbStartYear.setBackground(new Color(255, 255, 255));
@@ -73,27 +78,39 @@ public class GuestReservationDogView extends JFrame {
 		cbEndMonth.setBackground(new Color(255, 255, 255));
 		cbEndDay.setBackground(new Color(255, 255, 255));
 		
+		lblTitle.setBorder(new TitledBorder(""));
+		lblStartDate.setBorder(new TitledBorder(""));
+		lblEndDate.setBorder(new TitledBorder(""));
+		lblKind.setBorder(new TitledBorder(""));
+		lblGDName.setBorder(new TitledBorder(""));
+		lblGDPhone.setBorder(new TitledBorder(""));
+		lblPreliminaryPhone.setBorder(new TitledBorder(""));
+		lblRequestedTerm.setBorder(new TitledBorder(""));
+		lblHyphen1.setBorder(new TitledBorder(""));
+		lblHyphen2.setBorder(new TitledBorder(""));
+		lblHyphen3.setBorder(new TitledBorder(""));
+		lblHyphen4.setBorder(new TitledBorder(""));
+		lblDogName.setBorder(new TitledBorder(""));
 		
 		x = x + xGep;
 		y = y + 30;
 		lblTitle.setBounds(x, 10, width, 40);
 		y = y + height + yGep;
-		lblStartDate.setBounds(x, y, width, height);
+		lblStartDate.setBounds(x, y, 60, height);
+		cbStartYear.setBounds(x+70, y, 85, 20);
+		cbStartMonth.setBounds(x + 165, y, 65, 20);
+		cbStartDay.setBounds(x + 235, y, 65, 20);
 		y = y + height + yGep;
-		cbStartYear.setBounds(x, y, 90, 20);
-		cbStartMonth.setBounds(x + 100, y, 90, 20);
-		cbStartDay.setBounds(x + 200, y, 90, 20);
+		lblEndDate.setBounds(x, y, 60, height);
+		cbEndYear.setBounds(x+70, y, 85, 20);
+		cbEndMonth.setBounds(x + 165, y, 65, 20);
+		cbEndDay.setBounds(x + 235, y, 65, 20);
+
 		y = y + height + yGep;
-		lblEndDate.setBounds(x, y, width, height);
-		y = y + height + yGep;
-		cbEndYear.setBounds(x, y, 90, 20);
-		cbEndMonth.setBounds(x + 100, y, 90, 20);
-		cbEndDay.setBounds(x + 200, y, 90, 20);
-		y = y + height + yGep;
-		lblKind.setBounds(x, y, width, height);
+		lblKind.setBounds(x, y, 60, height);
 		cbKind.setBounds(x + 80, y, width - 90, height);
 		y = y + height + yGep;
-		lblDogName.setBounds(x, y, width, height);
+		lblDogName.setBounds(x, y, 70, height);
 		tfDogName.setBounds(x+80, y, width-80, height);
 		y = y + height + yGep;
 		lblGDName.setBounds(x, y, 60, height);
@@ -114,7 +131,10 @@ public class GuestReservationDogView extends JFrame {
 		tfPreliminaryPhone3.setBounds(x + 210, y, 50, height);
 		y = y + height + yGep;
 		lblRequestedTerm.setBounds(x, y, 60, height);
-		taRequestedTerm.setBounds(x + 80, y, width -80, 160);
+		y = y + height + yGep;
+		taRequestedTerm.setBounds(x , y, width, 160);
+		y = y + height + yGep;
+		btnApply.setBounds(x + 240, y + 135, 60, height);
 		
 		add(lblTitle);
 		add(lblStartDate);
@@ -145,10 +165,11 @@ public class GuestReservationDogView extends JFrame {
 		add(taRequestedTerm);
 		add(lblDogName);
 		add(tfDogName);
+		add(btnApply);
 
 		setResizable(false);
 		setLayout(null);
-		setBounds(600, 200, 350, 600);
+		setBounds(600, 200, 350, 580);
 		setVisible(true);
 
 	}// ReservationView

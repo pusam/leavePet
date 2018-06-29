@@ -3,11 +3,13 @@ package kr.co.sist.guest.view;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
 
 /**
  * 사용자 고양이 예약신청 화면
@@ -25,8 +27,10 @@ public class GuestReservationCatView extends JFrame {
 			tfPreliminaryPhone2, tfPreliminaryPhone3, tfCatName;
 	
 	private JTextArea taRequestedTerm;
+	
+	private JButton btnApply;
 
-	public GuestReservationCatView() {
+	public GuestReservationCatView(){
 		int x = 0;
 		int xGep = 20;
 		int y = 0;
@@ -43,7 +47,7 @@ public class GuestReservationCatView extends JFrame {
 		cbEndYear = new JComboBox<>();
 		cbEndMonth = new JComboBox<>();
 		cbEndDay = new JComboBox<>();
-		lblKind = new JLabel("룸타입");
+		lblKind = new JLabel("고양이");
 		cbKind = new JComboBox<>();
 		lblGDName = new JLabel("보호자");
 		tfGDName = new JTextField("");
@@ -62,8 +66,9 @@ public class GuestReservationCatView extends JFrame {
 		lblHyphen4 = new JLabel("-");
 		lblRequestedTerm = new JLabel("요청사항");
 		taRequestedTerm = new JTextArea();
-		lblCatName = new JLabel("고양이 이름");
+		lblCatName = new JLabel("룸타입");
 		tfCatName = new JTextField();
+		btnApply = new JButton("신청");
 		
 		lblTitle.setFont(new Font("Serif", Font.BOLD, 30));
 		cbStartYear.setBackground(new Color(255, 255, 255));
@@ -73,27 +78,39 @@ public class GuestReservationCatView extends JFrame {
 		cbEndMonth.setBackground(new Color(255, 255, 255));
 		cbEndDay.setBackground(new Color(255, 255, 255));
 		
+		lblTitle.setBorder(new TitledBorder(""));
+		lblStartDate.setBorder(new TitledBorder(""));
+		lblEndDate.setBorder(new TitledBorder(""));
+		lblKind.setBorder(new TitledBorder(""));
+		lblGDName.setBorder(new TitledBorder(""));
+		lblGDPhone.setBorder(new TitledBorder(""));
+		lblPreliminaryPhone.setBorder(new TitledBorder(""));
+		lblRequestedTerm.setBorder(new TitledBorder(""));
+		lblHyphen1.setBorder(new TitledBorder(""));
+		lblHyphen2.setBorder(new TitledBorder(""));
+		lblHyphen3.setBorder(new TitledBorder(""));
+		lblHyphen4.setBorder(new TitledBorder(""));
+		lblCatName.setBorder(new TitledBorder(""));
 		
 		x = x + xGep;
 		y = y + 30;
 		lblTitle.setBounds(x, 10, width, 40);
 		y = y + height + yGep;
-		lblStartDate.setBounds(x, y, width, height);
+		lblStartDate.setBounds(x, y, 60, height);
+		cbStartYear.setBounds(x+70, y, 85, 20);
+		cbStartMonth.setBounds(x + 165, y, 65, 20);
+		cbStartDay.setBounds(x + 235, y, 65, 20);
 		y = y + height + yGep;
-		cbStartYear.setBounds(x, y, 90, 20);
-		cbStartMonth.setBounds(x + 100, y, 90, 20);
-		cbStartDay.setBounds(x + 200, y, 90, 20);
+		lblEndDate.setBounds(x, y, 60, height);
+		cbEndYear.setBounds(x+70, y, 85, 20);
+		cbEndMonth.setBounds(x + 165, y, 65, 20);
+		cbEndDay.setBounds(x + 235, y, 65, 20);
+
 		y = y + height + yGep;
-		lblEndDate.setBounds(x, y, width, height);
-		y = y + height + yGep;
-		cbEndYear.setBounds(x, y, 90, 20);
-		cbEndMonth.setBounds(x + 100, y, 90, 20);
-		cbEndDay.setBounds(x + 200, y, 90, 20);
-		y = y + height + yGep;
-		lblKind.setBounds(x, y, width, height);
+		lblKind.setBounds(x, y, 60, height);
 		cbKind.setBounds(x + 80, y, width - 90, height);
 		y = y + height + yGep;
-		lblCatName.setBounds(x, y, width, height);
+		lblCatName.setBounds(x, y, 70, height);
 		tfCatName.setBounds(x+80, y, width-80, height);
 		y = y + height + yGep;
 		lblGDName.setBounds(x, y, 60, height);
@@ -114,7 +131,10 @@ public class GuestReservationCatView extends JFrame {
 		tfPreliminaryPhone3.setBounds(x + 210, y, 50, height);
 		y = y + height + yGep;
 		lblRequestedTerm.setBounds(x, y, 60, height);
-		taRequestedTerm.setBounds(x + 80, y, width -80, 160);
+		y = y + height + yGep;
+		taRequestedTerm.setBounds(x , y, width, 160);
+		y = y + height + yGep;
+		btnApply.setBounds(x + 240, y + 135, 60, height);
 		
 		add(lblTitle);
 		add(lblStartDate);
@@ -145,10 +165,11 @@ public class GuestReservationCatView extends JFrame {
 		add(taRequestedTerm);
 		add(lblCatName);
 		add(tfCatName);
+		add(btnApply);
 
 		setResizable(false);
 		setLayout(null);
-		setBounds(600, 200, 350, 600);
+		setBounds(600, 200, 350, 580);
 		setVisible(true);
 
 	}// ReservationView
