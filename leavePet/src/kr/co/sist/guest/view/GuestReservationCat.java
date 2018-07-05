@@ -11,26 +11,28 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
+import kr.co.sist.guest.Evt.GuestReservationCatEvt;
+
 /**
- * 사용자 강아지 예약신청 화면
+ * 사용자 고양이 예약신청 화면
  * 
  * @author kdh
  */
-public class GuestReservationDogView extends JFrame {
+public class GuestReservationCat extends JFrame {
 
 	private JLabel lblTitle, lblStartDate, lblEndDate, lblKind, lblGDName, lblGDPhone,
 			lblPreliminaryPhone, lblRequestedTerm, lblHyphen1, lblHyphen2, lblHyphen3, lblHyphen4,
-			lblDogName;
+			lblCatName;
 
 	private JComboBox<String> cbStartYear, cbStartMonth, cbStartDay, cbEndYear, cbEndMonth, cbEndDay, cbKind;
 	private JTextField tfGDName, tfGDPhone1, tfGDPhone2, tfGDPhone3, tfPreliminaryPhone1,
-			tfPreliminaryPhone2, tfPreliminaryPhone3, tfDogName;
+			tfPreliminaryPhone2, tfPreliminaryPhone3, tfCatName;
 	
 	private JTextArea taRequestedTerm;
 	
 	private JButton btnApply;
 
-	public GuestReservationDogView() {
+	public GuestReservationCat(){
 		int x = 0;
 		int xGep = 20;
 		int y = 0;
@@ -38,7 +40,7 @@ public class GuestReservationDogView extends JFrame {
 		int width = 300;
 		int height = 25;
 
-		lblTitle = new JLabel("강아지 예약 신청");
+		lblTitle = new JLabel("고양이 예약 신청");
 		lblStartDate = new JLabel("시작 날짜");
 		cbStartYear = new JComboBox<>();
 		cbStartMonth = new JComboBox<>();
@@ -47,7 +49,7 @@ public class GuestReservationDogView extends JFrame {
 		cbEndYear = new JComboBox<>();
 		cbEndMonth = new JComboBox<>();
 		cbEndDay = new JComboBox<>();
-		lblKind = new JLabel("강아지");
+		lblKind = new JLabel("고양이");
 		cbKind = new JComboBox<>();
 		lblGDName = new JLabel("보호자");
 		tfGDName = new JTextField("");
@@ -66,8 +68,8 @@ public class GuestReservationDogView extends JFrame {
 		lblHyphen4 = new JLabel("-");
 		lblRequestedTerm = new JLabel("요청사항");
 		taRequestedTerm = new JTextArea();
-		lblDogName = new JLabel("강아지 이름");
-		tfDogName = new JTextField();
+		lblCatName = new JLabel("룸타입");
+		tfCatName = new JTextField();
 		btnApply = new JButton("신청");
 		
 		lblTitle.setFont(new Font("Serif", Font.BOLD, 30));
@@ -90,7 +92,7 @@ public class GuestReservationDogView extends JFrame {
 		lblHyphen2.setBorder(new TitledBorder(""));
 		lblHyphen3.setBorder(new TitledBorder(""));
 		lblHyphen4.setBorder(new TitledBorder(""));
-		lblDogName.setBorder(new TitledBorder(""));
+		lblCatName.setBorder(new TitledBorder(""));
 		
 		x = x + xGep;
 		y = y + 30;
@@ -110,8 +112,8 @@ public class GuestReservationDogView extends JFrame {
 		lblKind.setBounds(x, y, 60, height);
 		cbKind.setBounds(x + 80, y, width - 90, height);
 		y = y + height + yGep;
-		lblDogName.setBounds(x, y, 70, height);
-		tfDogName.setBounds(x+80, y, width-80, height);
+		lblCatName.setBounds(x, y, 70, height);
+		tfCatName.setBounds(x+80, y, width-80, height);
 		y = y + height + yGep;
 		lblGDName.setBounds(x, y, 60, height);
 		tfGDName.setBounds(x + 80, y, width - 80, height);
@@ -163,10 +165,12 @@ public class GuestReservationDogView extends JFrame {
 		add(tfPreliminaryPhone3);
 		add(lblRequestedTerm);
 		add(taRequestedTerm);
-		add(lblDogName);
-		add(tfDogName);
+		add(lblCatName);
+		add(tfCatName);
 		add(btnApply);
 
+		GuestReservationCatEvt grce = new GuestReservationCatEvt(this);
+		
 		setResizable(false);
 		setLayout(null);
 		setBounds(600, 200, 350, 580);
@@ -174,7 +178,99 @@ public class GuestReservationDogView extends JFrame {
 
 	}// ReservationView
 	public static void main(String[] args) {
-		new GuestReservationDogView();
+		new GuestReservationCat();
 	}// end main
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
+	public JLabel getLblStartDate() {
+		return lblStartDate;
+	}
+	public JLabel getLblEndDate() {
+		return lblEndDate;
+	}
+	public JLabel getLblKind() {
+		return lblKind;
+	}
+	public JLabel getLblGDName() {
+		return lblGDName;
+	}
+	public JLabel getLblGDPhone() {
+		return lblGDPhone;
+	}
+	public JLabel getLblPreliminaryPhone() {
+		return lblPreliminaryPhone;
+	}
+	public JLabel getLblRequestedTerm() {
+		return lblRequestedTerm;
+	}
+	public JLabel getLblHyphen1() {
+		return lblHyphen1;
+	}
+	public JLabel getLblHyphen2() {
+		return lblHyphen2;
+	}
+	public JLabel getLblHyphen3() {
+		return lblHyphen3;
+	}
+	public JLabel getLblHyphen4() {
+		return lblHyphen4;
+	}
+	public JLabel getLblCatName() {
+		return lblCatName;
+	}
+	public JComboBox<String> getCbStartYear() {
+		return cbStartYear;
+	}
+	public JComboBox<String> getCbStartMonth() {
+		return cbStartMonth;
+	}
+	public JComboBox<String> getCbStartDay() {
+		return cbStartDay;
+	}
+	public JComboBox<String> getCbEndYear() {
+		return cbEndYear;
+	}
+	public JComboBox<String> getCbEndMonth() {
+		return cbEndMonth;
+	}
+	public JComboBox<String> getCbEndDay() {
+		return cbEndDay;
+	}
+	public JComboBox<String> getCbKind() {
+		return cbKind;
+	}
+	public JTextField getTfGDName() {
+		return tfGDName;
+	}
+	public JTextField getTfGDPhone1() {
+		return tfGDPhone1;
+	}
+	public JTextField getTfGDPhone2() {
+		return tfGDPhone2;
+	}
+	public JTextField getTfGDPhone3() {
+		return tfGDPhone3;
+	}
+	public JTextField getTfPreliminaryPhone1() {
+		return tfPreliminaryPhone1;
+	}
+	public JTextField getTfPreliminaryPhone2() {
+		return tfPreliminaryPhone2;
+	}
+	public JTextField getTfPreliminaryPhone3() {
+		return tfPreliminaryPhone3;
+	}
+	public JTextField getTfCatName() {
+		return tfCatName;
+	}
+	public JTextArea getTaRequestedTerm() {
+		return taRequestedTerm;
+	}
+	public JButton getBtnApply() {
+		return btnApply;
+	}
+	
+	
 
 }// class

@@ -1,5 +1,6 @@
 package kr.co.sist.guest.view;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -9,13 +10,14 @@ import javax.swing.border.TitledBorder;
  * 게스트 모니터링 뷰
  * @author owner
  */
-public class GuestMonitoringView extends JFrame {
+public class GuestMonitoring extends JFrame {
 
 	private JLabel lblTitle, lblSelectDate, lblBigPetView, lblSmallPetView1, lblSmallPetView2, lblSmallPetView3,
 			lblSmallPetView4, lblSmallPetView5, lblMonitorView;
 	private JComboBox<String> cbSelectYear, cbSelectMonth, cbSelectDay;
+	private JButton btnSearch;
 
-	public GuestMonitoringView() {
+	public GuestMonitoring() {
 		lblTitle = new JLabel("타이틀 가져와서 쓸것임");
 		lblSelectDate = new JLabel("날짜 선택");
 		lblBigPetView = new JLabel();
@@ -29,6 +31,7 @@ public class GuestMonitoringView extends JFrame {
 		cbSelectMonth = new JComboBox<>();
 		cbSelectDay = new JComboBox<>();
 		lblMonitorView = new JLabel();
+		btnSearch = new JButton("검색");
 
 		int x = 0;
 		int xGep = 20;
@@ -45,6 +48,7 @@ public class GuestMonitoringView extends JFrame {
 		cbSelectYear.setBounds(x, y, 100, 20);
 		cbSelectMonth.setBounds(x + 110, y, 100, 20);
 		cbSelectDay.setBounds(x + 220, y, 100, 20);
+		btnSearch.setBounds(x+330, y, 60, 25);
 		y = y + height + yGep;
 		lblBigPetView.setBounds(x, y, 400, 330);
 		y = y + height + yGep;
@@ -78,6 +82,7 @@ public class GuestMonitoringView extends JFrame {
 		add(lblSmallPetView4);
 		add(lblSmallPetView5);
 		add(lblMonitorView);
+		add(btnSearch);
 
 		setResizable(false);
 		setLayout(null);
@@ -87,7 +92,7 @@ public class GuestMonitoringView extends JFrame {
 	}// GuestMonitoringView
 
 	public static void main(String[] args) {
-		new GuestMonitoringView();
+		new GuestMonitoring();
 	}// main
 
 }// class
