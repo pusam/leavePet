@@ -170,6 +170,8 @@ public class GuestReservationCat extends JFrame {
 		add(btnApply);
 
 		GuestReservationCatEvt grce = new GuestReservationCatEvt(this);
+		cbStartYear.addActionListener(grce);
+		cbStartMonth.addActionListener(grce);
 		
 		setResizable(false);
 		setLayout(null);
