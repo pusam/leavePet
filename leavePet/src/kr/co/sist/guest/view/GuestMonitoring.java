@@ -14,7 +14,7 @@ public class GuestMonitoring extends JFrame {
 
 	private JLabel lblTitle, lblSelectDate, lblBigPetView, lblSmallPetView1, lblSmallPetView2, lblSmallPetView3,
 			lblSmallPetView4, lblSmallPetView5, lblMonitorView;
-	private JComboBox<String> cbSelectYear, cbSelectMonth, cbSelectDay;
+	private JComboBox<String> cbSelectDate;
 	private JButton btnSearch;
 
 	public GuestMonitoring() {
@@ -27,9 +27,7 @@ public class GuestMonitoring extends JFrame {
 		lblSmallPetView4 = new JLabel();
 		lblSmallPetView5 = new JLabel();
 		lblMonitorView = new JLabel();
-		cbSelectYear = new JComboBox<>();
-		cbSelectMonth = new JComboBox<>();
-		cbSelectDay = new JComboBox<>();
+		cbSelectDate = new JComboBox<>();
 		lblMonitorView = new JLabel();
 		btnSearch = new JButton("°Ë»ö");
 
@@ -45,9 +43,7 @@ public class GuestMonitoring extends JFrame {
 		y = y + height + yGep + 10;
 		lblSelectDate.setBounds(x, y, 400, 30);
 		y = y + height + yGep;
-		cbSelectYear.setBounds(x, y, 100, 20);
-		cbSelectMonth.setBounds(x + 110, y, 100, 20);
-		cbSelectDay.setBounds(x + 220, y, 100, 20);
+		cbSelectDate.setBounds(x, y+5, 320, 20);
 		btnSearch.setBounds(x+330, y, 60, 25);
 		y = y + height + yGep;
 		lblBigPetView.setBounds(x, y, 400, 330);
@@ -72,9 +68,7 @@ public class GuestMonitoring extends JFrame {
 
 		add(lblTitle);
 		add(lblSelectDate);
-		add(cbSelectYear);
-		add(cbSelectMonth);
-		add(cbSelectDay);
+		add(cbSelectDate);
 		add(lblBigPetView);
 		add(lblSmallPetView1);
 		add(lblSmallPetView2);

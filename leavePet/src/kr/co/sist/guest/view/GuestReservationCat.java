@@ -11,7 +11,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
-import kr.co.sist.guest.Evt.GuestReservationCatEvt;
+import kr.co.sist.guest.Evt.GuestReservationCatEvt2;
 
 /**
  * 사용자 고양이 예약신청 화면
@@ -31,7 +31,7 @@ public class GuestReservationCat extends JFrame {
 	private JTextArea taRequestedTerm;
 	
 	private JButton btnApply;
-
+	
 	public GuestReservationCat(){
 		int x = 0;
 		int xGep = 20;
@@ -169,9 +169,13 @@ public class GuestReservationCat extends JFrame {
 		add(tfCatName);
 		add(btnApply);
 
-		GuestReservationCatEvt grce = new GuestReservationCatEvt(this);
-		cbStartYear.addActionListener(grce);
-		cbStartMonth.addActionListener(grce);
+		GuestReservationCatEvt2 grce = new GuestReservationCatEvt2(this);
+		cbStartYear.addItemListener(grce);
+		cbStartMonth.addItemListener(grce);
+		cbStartDay.addItemListener(grce);
+		cbEndYear.addItemListener(grce);
+		cbEndMonth.addItemListener(grce);
+		cbEndDay.addItemListener(grce);
 		
 		setResizable(false);
 		setLayout(null);
