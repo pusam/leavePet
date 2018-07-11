@@ -57,11 +57,50 @@ public class GuestUsageHistory extends JFrame{
 		
 		add(tab);
 		
+		
+		
 		setVisible(true);
 		setBounds(500, 300, 470, 520);
 		
 	}//GuestUsageHistory
 	
+	
+	public JLabel getLblUsageHistory() {
+		return lblUsageHistory;
+	}
+
+
+
+	public JTable getTbView() {
+		return tbView;
+	}
+
+
+
+	public DefaultTableModel getDtm() {
+		return dtm;
+	}
+
+
+
+	public JTabbedPane getTab() {
+		return tab;
+	}
+
+
+
+	public JPanel getPnGuestUsageHistory() {
+		return pnGuestUsageHistory;
+	}
+
+
+
+	public GuestInquiryDetailsCheck getGidc() {
+		return gidc;
+	}
+
+
+
 	public static void main(String[] args) {
 		new GuestUsageHistory();
 	}//main
