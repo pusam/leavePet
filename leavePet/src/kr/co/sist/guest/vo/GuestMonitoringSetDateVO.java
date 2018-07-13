@@ -1,31 +1,22 @@
 package kr.co.sist.guest.vo;
 
-public class GuestUsageHistoryVO {
+public class GuestMonitoringSetDateVO {
 
-	private String bSeq, chkInDate, chkOutDate, coName, petName, bStatus;
+	private String chkInDate, chkOutDate, coName, petType, bNum;
 	private int rtPrice;
 	
-	public GuestUsageHistoryVO() {
+	public GuestMonitoringSetDateVO() {
 		
 	}
 
-	public GuestUsageHistoryVO(String bSeq, String chkInDate, String chkOutDate, String coName, String petName,
-			String bStatus, int rtPrice) {
-		this.bSeq = bSeq;
+	public GuestMonitoringSetDateVO(String chkInDate, String chkOutDate, String coName, String petType, String bNum,
+			int rtPrice) {
 		this.chkInDate = chkInDate;
 		this.chkOutDate = chkOutDate;
 		this.coName = coName;
-		this.petName = petName;
-		this.bStatus = bStatus;
+		this.petType = petType;
+		this.bNum = bNum;
 		this.rtPrice = rtPrice;
-	}
-
-	public String getbSeq() {
-		return bSeq;
-	}
-
-	public void setbSeq(String bSeq) {
-		this.bSeq = bSeq;
 	}
 
 	public String getChkInDate() {
@@ -52,20 +43,20 @@ public class GuestUsageHistoryVO {
 		this.coName = coName;
 	}
 
-	public String getPetName() {
-		return petName;
+	public String getPetType() {
+		return petType;
 	}
 
-	public void setPetName(String petName) {
-		this.petName = petName;
+	public void setPetType(String petType) {
+		this.petType = petType;
 	}
 
-	public String getbStatus() {
-		return bStatus;
+	public String getbNum() {
+		return bNum;
 	}
 
-	public void setbStatus(String bStatus) {
-		this.bStatus = bStatus;
+	public void setbNum(String bNum) {
+		this.bNum = bNum;
 	}
 
 	public int getRtPrice() {
@@ -76,4 +67,4 @@ public class GuestUsageHistoryVO {
 		this.rtPrice = rtPrice;
 	}
 
-}//GuestUsageHistoryVO
+}//GuestMonitoringSetDateVO

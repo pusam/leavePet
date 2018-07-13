@@ -174,8 +174,8 @@ public class GuestReservationCatEvt2 implements ItemListener {
 			}else {
 				for(int i=1; i<13; i++) {
 					prc.getCbEndMonth().addItem(valueOf(i));
-				}
-			}
+				}//end for
+			}//else if
 		} // end if
 	}// changeEndMonth
 

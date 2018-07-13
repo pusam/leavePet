@@ -6,30 +6,34 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.border.TitledBorder;
 
+import kr.co.sist.guest.Evt.GuestMonitoringEvt;
+
 /**
  * 게스트 모니터링 뷰
  * @author owner
  */
 public class GuestMonitoring extends JFrame {
 
-	private JLabel lblTitle, lblSelectDate, lblBigPetView, lblSmallPetView1, lblSmallPetView2, lblSmallPetView3,
-			lblSmallPetView4, lblSmallPetView5, lblMonitorView;
+	private JLabel lblTitle, lblSelectDate, lblBigPetView, lblMonitorView;
 	private JComboBox<String> cbSelectDate;
-	private JButton btnSearch;
-
-	public GuestMonitoring() {
+	private JButton btnSearch, btnSmallPetView1, btnSmallPetView2, btnSmallPetView3,
+	btnSmallPetView4, btnSmallPetView5;
+	private String bSeq;
+	
+	public GuestMonitoring(String bSeq) {
 		lblTitle = new JLabel("타이틀 가져와서 쓸것임");
 		lblSelectDate = new JLabel("날짜 선택");
 		lblBigPetView = new JLabel();
-		lblSmallPetView1 = new JLabel();
-		lblSmallPetView2 = new JLabel();
-		lblSmallPetView3 = new JLabel();
-		lblSmallPetView4 = new JLabel();
-		lblSmallPetView5 = new JLabel();
+		btnSmallPetView1 = new JButton();
+		btnSmallPetView2 = new JButton();
+		btnSmallPetView3 = new JButton();
+		btnSmallPetView4 = new JButton();
+		btnSmallPetView5 = new JButton();
 		lblMonitorView = new JLabel();
 		cbSelectDate = new JComboBox<>();
 		lblMonitorView = new JLabel();
 		btnSearch = new JButton("검색");
+		this.bSeq=bSeq;
 
 		int x = 0;
 		int xGep = 20;
@@ -37,56 +41,106 @@ public class GuestMonitoring extends JFrame {
 		int yGep = 10;
 		int width = 300;
 		int height = 25;
+		int imgWidth = 85;
+		int imgHeight = 100;
 
 		x = x + xGep;
-		lblTitle.setBounds(x, 10, 700, 30);
+		lblTitle.setBounds(x, 10, 750, 30);
 		y = y + height + yGep + 10;
-		lblSelectDate.setBounds(x, y, 400, 30);
+		lblSelectDate.setBounds(x, y, 450, 30);
 		y = y + height + yGep;
 		cbSelectDate.setBounds(x, y+5, 320, 20);
 		btnSearch.setBounds(x+330, y, 60, 25);
 		y = y + height + yGep;
-		lblBigPetView.setBounds(x, y, 400, 330);
+		lblBigPetView.setBounds(x, y, 450, 330);
 		y = y + height + yGep;
-		lblSmallPetView1.setBounds(x, y + 300, 80, 100);
-		lblSmallPetView2.setBounds(x + 80, y + 300, 80, 100);
-		lblSmallPetView3.setBounds(x + 160, y + 300, 80, 100);
-		lblSmallPetView4.setBounds(x + 240, y + 300, 80, 100);
-		lblSmallPetView5.setBounds(x + 320, y + 300, 80, 100);
+		btnSmallPetView1.setBounds(x, y + 300, imgWidth, imgHeight);
+		btnSmallPetView2.setBounds(x + 90, y + 300, imgWidth, imgHeight);
+		btnSmallPetView3.setBounds(x + 180, y + 300, imgWidth, imgHeight);
+		btnSmallPetView4.setBounds(x + 270, y + 300, imgWidth, imgHeight);
+		btnSmallPetView5.setBounds(x + 360, y + 300, imgWidth, imgHeight);
 		y = y + height + yGep;
-		lblMonitorView.setBounds(x + 410, 45, 290, 510);
+		lblMonitorView.setBounds(x + 460, 45, 290, 510);
 
 		lblTitle.setBorder(new TitledBorder(""));
 		lblSelectDate.setBorder(new TitledBorder(""));
 		lblBigPetView.setBorder(new TitledBorder(""));
-		lblSmallPetView1.setBorder(new TitledBorder(""));
-		lblSmallPetView2.setBorder(new TitledBorder(""));
-		lblSmallPetView3.setBorder(new TitledBorder(""));
-		lblSmallPetView4.setBorder(new TitledBorder(""));
-		lblSmallPetView5.setBorder(new TitledBorder(""));
+		btnSmallPetView1.setBorder(new TitledBorder(""));
+		btnSmallPetView2.setBorder(new TitledBorder(""));
+		btnSmallPetView3.setBorder(new TitledBorder(""));
+		btnSmallPetView4.setBorder(new TitledBorder(""));
+		btnSmallPetView5.setBorder(new TitledBorder(""));
 		lblMonitorView.setBorder(new TitledBorder(""));
 
 		add(lblTitle);
 		add(lblSelectDate);
 		add(cbSelectDate);
 		add(lblBigPetView);
-		add(lblSmallPetView1);
-		add(lblSmallPetView2);
-		add(lblSmallPetView3);
-		add(lblSmallPetView4);
-		add(lblSmallPetView5);
+		add(btnSmallPetView1);
+		add(btnSmallPetView2);
+		add(btnSmallPetView3);
+		add(btnSmallPetView4);
+		add(btnSmallPetView5);
 		add(lblMonitorView);
 		add(btnSearch);
 
+		GuestMonitoringEvt gme = new GuestMonitoringEvt(this);
+		gme.setDateTitle();
+		
 		setResizable(false);
 		setLayout(null);
-		setBounds(600, 200, 750, 600);
+		setBounds(600, 200, 800, 600);
 		setVisible(true);
 
 	}// GuestMonitoringView
 
-	public static void main(String[] args) {
-		new GuestMonitoring();
-	}// main
+	public JLabel getLblTitle() {
+		return lblTitle;
+	}
 
+	public JLabel getLblSelectDate() {
+		return lblSelectDate;
+	}
+
+	public JLabel getLblBigPetView() {
+		return lblBigPetView;
+	}
+
+	public JLabel getLblMonitorView() {
+		return lblMonitorView;
+	}
+
+	public JComboBox<String> getCbSelectDate() {
+		return cbSelectDate;
+	}
+
+	public JButton getBtnSearch() {
+		return btnSearch;
+	}
+
+	public JButton getBtnSmallPetView1() {
+		return btnSmallPetView1;
+	}
+
+	public JButton getBtnSmallPetView2() {
+		return btnSmallPetView2;
+	}
+
+	public JButton getBtnSmallPetView3() {
+		return btnSmallPetView3;
+	}
+
+	public JButton getBtnSmallPetView4() {
+		return btnSmallPetView4;
+	}
+
+	public JButton getBtnSmallPetView5() {
+		return btnSmallPetView5;
+	}
+
+	public String getbSeq() {
+		return bSeq;
+	}
+
+	
 }// class

@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import kr.co.sist.guest.Evt.GuestInquiryDetailsCheckEvt;
+
 public class GuestInquiryDetailsCheck extends JPanel{
 
 	private JLabel lblUsageHistory;
@@ -48,9 +50,30 @@ public class GuestInquiryDetailsCheck extends JPanel{
 		
 		add(pnAll);
 		
+		GuestInquiryDetailsCheckEvt gdce = new GuestInquiryDetailsCheckEvt(this);
+		tbView.addMouseListener(gdce);
+		
+		gdce.guestDetailsCheckList();
+		
 		setVisible(true);
 		setBounds(500, 300, 460, 500);
 		
 	}//GuestUsageHistory
+
+	public JLabel getLblUsageHistory() {
+		return lblUsageHistory;
+	}
+
+	public JTable getTbView() {
+		return tbView;
+	}
+
+	public DefaultTableModel getDtm() {
+		return dtm;
+	}
+
+	public JPanel getPnAll() {
+		return pnAll;
+	}
 
 }//class

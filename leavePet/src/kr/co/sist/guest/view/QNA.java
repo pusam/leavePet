@@ -7,12 +7,15 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
+import kr.co.sist.guest.Evt.QNAEvt;
+import kr.co.sist.guest.vo.QNAVO;
+
 public class QNA extends JFrame {
 	
 	private JLabel lblQText, lblQAnswer;
 	private JTextArea taQText, taQAnswer; 
 
-	private QNA() {
+	public QNA() {
 		
 		lblQText = new JLabel("고객 문의 내역 상세");
 		lblQAnswer= new JLabel("답변 내역");
@@ -33,18 +36,15 @@ public class QNA extends JFrame {
 		add(lblQAnswer);
 		add(taQAnswer);
 		
+		QNAEvt qnae = new QNAEvt(this);
+		qnae.requestSelect();
+		
 		setResizable(false);
 		setLayout(null);
 		setBounds(600, 200, 450, 620);
 		setVisible(true);		
 		
 	}// GuestInquirydetailsCheck
-
-	public static void main(String[] args) {
-
-		new QNA();
-
-	}// main
 
 	public JTextArea getTaQText() {
 		return taQText;

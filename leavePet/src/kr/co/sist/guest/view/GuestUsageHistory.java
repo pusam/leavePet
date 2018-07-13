@@ -10,6 +10,8 @@ import javax.swing.JTable;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
+import kr.co.sist.guest.Evt.GuestUsageHistoryEvt;
+
 public class GuestUsageHistory extends JFrame{
 
 	private JLabel lblUsageHistory;
@@ -31,11 +33,17 @@ public class GuestUsageHistory extends JFrame{
 		
 		String tableName[] = {"순번","시작날짜","끝날짜","업체명","동물","가격","예약상태"};
 		
-		dtm = new DefaultTableModel(tableName, 0);
+		dtm = new DefaultTableModel(tableName, 0) {
+
+			@Override
+			public boolean isCellEditable(int row, int column) {
+				return false;
+			}
+		};
 		
 		tbView = new JTable(dtm);
 		
-		tbView.setRowHeight(90);
+		tbView.setRowHeight(40);
 		
 		tbView.getColumnModel().getColumn(0).setPreferredWidth(40);
 		tbView.getColumnModel().getColumn(1).setPreferredWidth(80);
@@ -44,6 +52,7 @@ public class GuestUsageHistory extends JFrame{
 		tbView.getColumnModel().getColumn(4).setPreferredWidth(60);
 		tbView.getColumnModel().getColumn(5).setPreferredWidth(60);
 		tbView.getColumnModel().getColumn(6).setPreferredWidth(60);
+		
 		
 		JScrollPane jsp = new JScrollPane(tbView);
 		
@@ -55,12 +64,16 @@ public class GuestUsageHistory extends JFrame{
 		tab.add("이용내역", pnGuestUsageHistory);
 		tab.addTab("문의내역", gidc.pnAll);
 		
+		
 		add(tab);
 		
-		
+		GuestUsageHistoryEvt guhe = new GuestUsageHistoryEvt(this);
+		tbView.addMouseListener(guhe);
 		
 		setVisible(true);
 		setBounds(500, 300, 470, 520);
+		
+		guhe.setUsageHistory();
 		
 	}//GuestUsageHistory
 	
